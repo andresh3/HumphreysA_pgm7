@@ -99,8 +99,6 @@ void alphabetize_arr(string sort_arr[], double parrallel_arr[], int arr_size, bo
 			string& last_str = sort_arr[smallest_val_index];
 			double& last_dbl = parrallel_arr[smallest_val_index];
 			
-
-
 			temp_str = start_str;
 			temp_dbl = start_dbl;
 
