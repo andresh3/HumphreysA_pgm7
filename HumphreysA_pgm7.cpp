@@ -31,7 +31,7 @@ void print_data(const string keys[], const int arr_len)
 	return;
 }
 
-void alphabetize_arr(string sort_arr[], double parralel_arr, int arr_size, bool ascending=true)
+void alphabetize_arr(string sort_arr[], double parrallel_arr[], int arr_size, bool ascending=true)
 {
 	cout << "FIX ME: alphabetize_arr(string sort_arr[], double parralel_arr, int arr_size)" << endl;
 }
@@ -49,12 +49,28 @@ int main()
 	double rebound_averages[MAX_PLAYERS];
 	int players = MAX_PLAYERS;
 
-	read_data(in_fs, player_names, rebound_averages, players);
+	if (!read_data(in_fs, player_names, rebound_averages, players))
+	{
+		cout << "FATAL ERROR: Could not read " << FILE_NAME << "." << endl;
+		return -1;
+	}
 	print_data(player_names, rebound_averages, players);
 	print_data(player_names, players);
 
+	alphabetize_arr(player_names, rebound_averages, players);
 	while (true)
 	{
+		string player_name;
+		int index;
+		cin >> player_name;
+		index = search_arr(player_names, players, player_name);
+		
+		if (index == -1)
+		{
+			cout << "The player cannot be found" << endl;
+			break;
+		}
+		cout << player_names[index] << " had " << rebound_averages[index] << " rebounds per game during the 2020-21 regular season." << endl;
 
 	}
 	
